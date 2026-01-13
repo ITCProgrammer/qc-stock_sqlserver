@@ -73,14 +73,15 @@ $db->connectMySQLi();
         <input type="password" class="form-control" placeholder="Password" name="password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
-      <div class="form-group has-feedback">
+      <input type="hidden" name="sub" class="hidden" value="PACKING">
+      <!-- <div class="form-group has-feedback">
         <select name="sub" class="form-control">
           <option value="ATK">ATK</option>
           <option value="PACKING">PACKING</option>
-<!--          <option value="TQ">TQ</option>-->
+          <option value="TQ">TQ</option>
 		  <option value="INSPECTION">INSPECTION</option>	
         </select>
-      </div>
+      </div> -->
       <div class="row">
          <div class="col-xs-8">
           <!-- <div class="checkbox icheck">

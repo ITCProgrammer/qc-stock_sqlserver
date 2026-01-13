@@ -3,9 +3,9 @@ include_once '../config/koneksi.php';
 include_once '../controllers/usersClass.php';
 // instance objek
 $user     = new User();
-$db       = new Database();
+// $db       = new Database();
 // koneksi ke MySQL via method
-$db->connectMySQLi();
+// $db->connectMySQLi();
 
 $page = $_GET['page'];
 // ############################################ MODULE USER ############################################################
