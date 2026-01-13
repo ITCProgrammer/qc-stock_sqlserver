@@ -23,6 +23,6 @@ $barang->update_barang($_POST['id'],$_POST['nama'],$_POST['jenis'],
 }
 // ## BARANG-DELETE
 elseif($page == "hapusstock"){
-$barang->hapus_barang($_GET['id']);
+$barang->hapus_barang((int) $_GET['id']);
  	header("location:../barang");
 }

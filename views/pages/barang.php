@@ -3,7 +3,7 @@ error_reporting(0);
 session_start();
 // instance objek
 $barang = new Barang();
-$db = new Database();
+// $db = new Database();
 //$idsub =$_SESSION['subQC'];
 $cek= $barang->jmlStock($idsub);
 ?>
@@ -52,7 +52,7 @@ $cek= $barang->jmlStock($idsub);
   <?php
 $col=0;
 $no=1;
-foreach($barang->tampil_data($idsub,$min) as $rowd){
+foreach($barang->tampil_data($idsub, "") as $rowd){
 	 $bgcolor = ($col++ & 1) ? 'gainsboro' : 'antiquewhite';
 	if($rowd['jumlah']>=$rowd['jumlah_min'] and $rowd['jumlah']<=$rowd['jumlah_min_a'] ){
 		$stt="YA1";
