@@ -29,8 +29,8 @@ $barangout->update_barang_out($_POST['id'],$_POST['jumlah'],$note,$id,$selisih);
 }
 // ## BARANG-OUT-DELETE
 elseif($page == "hapusstockout"){
-$id=$barangout->show_data_outid($_GET['id']);
-$jumlah=$barangout->show_data_outjml($_GET['id']);
-$barangout->hapus_barang_out($_GET['id'],$id,$jumlah);
+$id=$barangout->show_data_outid((int) $_GET['id']);
+$jumlah=$barangout->show_data_outjml((int) $_GET['id']);
+$barangout->hapus_barang_out((int) $_GET['id'],$id,$jumlah);
  	header("location:../stok-out");
 }

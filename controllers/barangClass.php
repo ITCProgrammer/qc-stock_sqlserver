@@ -56,7 +56,7 @@ class Barang extends Database
         // return $row['harga'];
 
 
-        $sql = "SELECT * FROM tbl_barang WHERE id=?";
+        $sql = "SELECT * FROM invqc.tbl_barang WHERE id=?";
         $params = [$id];
 
         $stmt = sqlsrv_query($this->connSqlSrv, $sql, $params);
@@ -118,6 +118,7 @@ class Barang extends Database
     // tampilkan data dari tabel barang yang akan di edit
     public function edit_barang($id)
     {
+       
         // $data = $this->conn->query("SELECT * FROM tbl_barang WHERE id='$id'");
         // while ($x = mysqli_fetch_array($data)) {
         //     $hasil[] = $x;

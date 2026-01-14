@@ -47,7 +47,7 @@ foreach($barangout->tampil_data_out($idsub) as $rowd){
       ?>
   <tr bgcolor="<?php echo $bgcolor; ?>">
     <td><?php echo $no;?></td>
-    <td align="left"><?php echo $rowd['tanggal'];?></td>
+    <td align="left"><?php echo $rowd['tanggal']->format('Y-m-d');?></td>
     <td><a href="#" class="open_detailinout" id="<?php echo $rowd['idb']; ?>"><?php echo $rowd['kode'];?> <span class="label label-danger"><?php echo $rowd['jml'];?></span></a></td>
     <td align="center"><?php echo $rowd['nama']; ?></td>
     <td align="right"><?php echo $rowd['jenis'];?></td>

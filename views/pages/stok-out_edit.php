@@ -11,7 +11,8 @@ $db       = new Database();
 // koneksi ke MySQL via method
 $db->connectMySQLi();
 $modal_id=$_GET['id'];
-foreach($barangout->edit_barang_out($modal_id) as $r){
+$r = $barangout->edit_barang_out($modal_id);
+// foreach($barangout->edit_barang_out($modal_id) as $r){
 ?>
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -48,7 +49,7 @@ foreach($barangout->edit_barang_out($modal_id) as $r){
             <!-- /.modal-content -->
   </div>
           <!-- /.modal-dialog -->
-          <?php } ?>
+          <?php //} ?>
 
   <script>
 
