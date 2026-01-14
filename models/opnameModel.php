@@ -20,6 +20,6 @@ header("location:../stok-opname");
 }
 // ## OPNAME-DELETE
 elseif($page == "hapusopname"){
-$opname->hapus_opname($_GET['id']);
+$opname->hapus_opname((int) $_GET['id']);
  	header("location:../stok-opname");
 }

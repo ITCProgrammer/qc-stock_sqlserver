@@ -3,7 +3,7 @@ error_reporting(0);
 session_start();
 
 $opname   = new Opname();
-$db       = new Database();
+// $db       = new Database();
 $idsub    = $_SESSION['subQC'];
 
 ?>
@@ -63,7 +63,7 @@ $tglstkak = $opname->ambilTgl($idsub);
           </div>
           <div class="form-group">
           <div class="col-sm-3">
-            <i>Tgl Terakhir Stock: <b><?php echo $tglstkak; ?></b></i>
+            <i>Tgl Terakhir Stock: <b><?php echo $tglstkak->format('Y-m-d'); ?></b></i>
           </div>
         </div>
           <div class="form-group">
@@ -112,10 +112,10 @@ $tglstkak = $opname->ambilTgl($idsub);
                 <?php echo $no; ?>
               </td>
               <td align="center">
-                <?php echo $rowd['tgl_awal']; ?>
+                <?php echo $rowd['tgl_awal']->format('Y-m-d'); ?>
               </td>
               <td align="center">
-                <?php echo $rowd['tgl_akhir']; ?>
+                <?php echo $rowd['tgl_akhir']->format('Y-m-d'); ?>
               </td>
               <td align="right">
                 <?php echo $rowd['stokawal']; ?>
@@ -137,9 +137,9 @@ $tglstkak = $opname->ambilTgl($idsub);
               </td>
               <td align="center">
                 <div class="btn-group">
-                  <a href="cetak/lapstockopname/<?php echo $rowd['tgl_awal']; ?>/<?php echo $rowd['tgl_akhir']; ?>/<?php echo $_SESSION['subQC']; ?>"
+                  <a href="cetak/lapstockopname/<?php echo $rowd['tgl_awal']->format('Y-m-d'); ?>/<?php echo $rowd['tgl_akhir']->format('Y-m-d'); ?>/<?php echo $_SESSION['subQC']; ?>"
                     target="_blank" class="btn btn-primary btn-sm <?php if($_SESSION['lvlQC']==3){echo "disabled"; } ?>"><i class="fa fa-print"></i> </a>
-                  <a href="#" class="btn btn-danger btn-sm <?php if($_SESSION['lvlQC']==3 OR $tglstkak != $rowd['tgl_akhir'] ){echo "disabled"; } ?>" onclick="confirm_delete('./hapusopname-<?php echo $rowd['id'] ?>/');"><i class="fa fa-trash"></i> </a>
+                  <a href="#" class="btn btn-danger btn-sm <?php if($_SESSION['lvlQC']==3 OR $tglstkak != $rowd['tgl_akhir']->format('Y-m-d') ){echo "disabled"; } ?>" onclick="confirm_delete('./hapusopname-<?php echo $rowd['id'] ?>/');"><i class="fa fa-trash"></i> </a>
                 </div>
               </td>
             </tr>
