@@ -46,8 +46,8 @@ class BarangMasuk extends Database
             b.jumlah,
             b.note,
             b.userid
-        FROM tbl_barang a
-        INNER JOIN tbl_barang_in b 
+        FROM invqc.tbl_barang a
+        INNER JOIN invqc.tbl_barang_in b 
             ON a.id = b.id_barang
         WHERE b.tanggal BETWEEN ? AND ?
           AND a.sub_dept = ?
@@ -143,8 +143,8 @@ class BarangMasuk extends Database
             b.jumlah,
             b.note,
             b.userid
-        FROM tbl_barang a
-        INNER JOIN tbl_barang_in b 
+        FROM invqc.tbl_barang a
+        INNER JOIN invqc.tbl_barang_in b 
             ON a.id = b.id_barang
         WHERE b.tanggal BETWEEN ? AND ?
           AND a.sub_dept = ?

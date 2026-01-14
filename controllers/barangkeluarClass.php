@@ -29,15 +29,53 @@ class BarangKeluar extends Database
     }
     public function cektgl($tgl1, $tgl2, $idsub)
     {
-        $data = $this->conn->query("SELECT a.kode,a.nama,a.jenis,a.harga,a.satuan,b.tanggal,b.jumlah,b.note,b.userid from tbl_barang a
-INNER JOIN tbl_barang_out b ON a.id=b.id_barang
-WHERE b.tanggal BETWEEN '$tgl1' AND '$tgl2' AND a.sub_dept='$idsub'
-ORDER BY a.kode ASC");
-        // $result=mysql_num_rows($data)
-        // return $result;
-        while ($d = mysqli_fetch_array($data)) {
-            $result[] = $d;
+        //         $data = $this->conn->query("SELECT a.kode,a.nama,a.jenis,a.harga,a.satuan,b.tanggal,b.jumlah,b.note,b.userid from tbl_barang a
+        // INNER JOIN tbl_barang_out b ON a.id=b.id_barang
+        // WHERE b.tanggal BETWEEN '$tgl1' AND '$tgl2' AND a.sub_dept='$idsub'
+        // ORDER BY a.kode ASC");
+        //         // $result=mysql_num_rows($data)
+        //         // return $result;
+        //         while ($d = mysqli_fetch_array($data)) {
+        //             $result[] = $d;
+        //         }
+        //         return $result;
+
+        $sql = "
+        SELECT
+            a.kode,
+            a.nama,
+            a.jenis,
+            a.harga,
+            a.satuan,
+            b.tanggal,
+            b.jumlah,
+            b.note,
+            b.userid
+        FROM invqc.tbl_barang a
+        INNER JOIN invqc.tbl_barang_out b
+            ON a.id = b.id_barang
+        WHERE b.tanggal BETWEEN ? AND ?
+          AND a.sub_dept = ?
+        ORDER BY a.kode ASC
+    ";
+
+        $params = [
+            $tgl1,
+            $tgl2,
+            $idsub
+        ];
+
+        $query = sqlsrv_query($this->connSqlSrv, $sql, $params);
+
+        if ($query === false) {
+            die(print_r(sqlsrv_errors(), true));
         }
+
+        $result = [];
+        while ($row = sqlsrv_fetch_array($query, SQLSRV_FETCH_ASSOC)) {
+            $result[] = $row;
+        }
+
         return $result;
     }
     // tampilkan data dari tabel barang dan tabel barang-in
@@ -91,13 +129,52 @@ ORDER BY a.kode ASC");
     // tampilkan data dari tabel barang dan tabel barang-out berdasarkan range tgl keluar
     public function tampildataout_tgl($tgl1, $tgl2, $idsub)
     {
-        $data = $this->conn->query("SELECT a.kode,a.nama,a.jenis,a.harga,a.satuan,b.id,b.jumlah,b.tanggal,b.total_harga,b.note,b.userid from tbl_barang a
-  INNER JOIN tbl_barang_out b ON a.id=b.id_barang
-  WHERE b.tanggal BETWEEN '$tgl1' AND '$tgl2' AND a.sub_dept='$idsub'
-  ORDER BY a.kode ASC");
-        while ($d = mysqli_fetch_array($data)) {
-            $result[] = $d;
+        //         $data = $this->conn->query("SELECT a.kode,a.nama,a.jenis,a.harga,a.satuan,b.id,b.jumlah,b.tanggal,b.total_harga,b.note,b.userid from tbl_barang a
+        //   INNER JOIN tbl_barang_out b ON a.id=b.id_barang
+        //   WHERE b.tanggal BETWEEN '$tgl1' AND '$tgl2' AND a.sub_dept='$idsub'
+        //   ORDER BY a.kode ASC");
+        //         while ($d = mysqli_fetch_array($data)) {
+        //             $result[] = $d;
+        //         }
+        //         return $result;
+        $sql = "
+        SELECT
+            a.kode,
+            a.nama,
+            a.jenis,
+            a.harga,
+            a.satuan,
+            b.id,
+            b.jumlah,
+            b.tanggal,
+            b.total_harga,
+            b.note,
+            b.userid
+        FROM invqc.tbl_barang a
+        INNER JOIN invqc.tbl_barang_out b
+            ON a.id = b.id_barang
+        WHERE b.tanggal BETWEEN ? AND ?
+          AND a.sub_dept = ?
+        ORDER BY a.kode ASC
+    ";
+
+        $params = [
+            $tgl1,
+            $tgl2,
+            $idsub
+        ];
+
+        $query = sqlsrv_query($this->connSqlSrv, $sql, $params);
+
+        if ($query === false) {
+            die(print_r(sqlsrv_errors(), true));
         }
+
+        $result = [];
+        while ($row = sqlsrv_fetch_array($query, SQLSRV_FETCH_ASSOC)) {
+            $result[] = $row;
+        }
+
         return $result;
     }
     // proses input barang

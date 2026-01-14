@@ -222,7 +222,7 @@ function Footer()
 		if($w==0)
 			$w=$this->w-$this->rMargin-$this->x;
 		$wmax=($w-2*$this->cMargin)*1000/$this->FontSize;
-		$s=str_replace("\r",'',$txt);
+		$s=str_replace("\r",'', $txt);
 		$nb=strlen($s);
 		if($nb>0 and $s[$nb-1]=="\n")
 			$nb--;
@@ -269,9 +269,13 @@ function Footer()
 }
 #ambil data dari DB dan masukkan ke array
 $data = array();
+
 foreach($barang->tampil_data($idsub,$min) as $rowd){
+	$rowd['tgl_buat'] = $rowd['tgl_buat']->format('Y-m-d');
+	$rowd['tgl_update'] = $rowd['tgl_update']->format('Y-m-d');
 	array_push($data, $rowd);
 }
+// print_r($data);
 
 //pilihan
 $options = array(
