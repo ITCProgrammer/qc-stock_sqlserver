@@ -23,6 +23,6 @@ $satuan->update_satuan($_POST['id'],$satu,$ket);
 }
 // ## SATUAN-DELETE
 elseif($page == "hapussatuan"){
-$satuan->hapus_satuan($_GET['id']);
+$satuan->hapus_satuan((int) $_GET['id']);
  	header("location:../satuan");
 }
