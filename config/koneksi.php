@@ -23,6 +23,10 @@ class Database
 
     var $mysqli = "";
 
+    /**
+     * @deprecated This method is deprecated, use connectSqlServer() instead.
+     * 
+     */
     function connectMySQLi()
     {
         //konek ke mysql server

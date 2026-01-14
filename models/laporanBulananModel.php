@@ -20,6 +20,6 @@ if ($page == "input-laporan-bulanan") {
 }
 // ## OPNAME-DELETE
 elseif ($page == "hapus-laporan-bulanan") {
-    $laporanBulananNow->hapus($_GET['id']);
+    $laporanBulananNow->hapus((int)$_GET['id']);
     header("location:../laporan-bulanan-now");
 }
