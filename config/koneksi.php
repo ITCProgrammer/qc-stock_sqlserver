@@ -41,6 +41,7 @@ class Database
         $usernameSVR19 = "sa";
         $passwordSVR19 = "Ind@taichen2024";
 
+        // if connection error due to certificate, please remove "TrustServerCertificate" => true ini array below
         $dbnow_gkg = array("Database" => "invqc", "UID" => $usernameSVR19, "PWD" => $passwordSVR19, "TrustServerCertificate" => true);
         $con = sqlsrv_connect($hostSVR19, $dbnow_gkg);
 

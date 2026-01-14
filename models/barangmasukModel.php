@@ -27,8 +27,8 @@ $barangin->update_barang_in($_POST['id'],$_POST['jumlah'],$note,$id,$selisih);
 }
 // ## BARANG-IN-DELETE
 elseif($page == "hapusstockin"){
-$id=$barangin->show_data_inid($_GET['id']);
-$jumlah=$barangin->show_data_injml($_GET['id']);
-$barangin->hapus_barang_in($_GET['id'],$id,$jumlah);
+$id=$barangin->show_data_inid((int) $_GET['id']);
+$jumlah=$barangin->show_data_injml((int) $_GET['id']);
+$barangin->hapus_barang_in((int) $_GET['id'],$id,$jumlah);
  	header("location:../stok-in");
 }

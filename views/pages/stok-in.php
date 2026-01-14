@@ -4,7 +4,7 @@ session_start();
 // instance objek
 $barang   = new Barang();
 $barangin = new BarangMasuk();
-$db       = new Database();
+// $db       = new Database();
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -40,12 +40,13 @@ $db       = new Database();
   <?php
 $col=0;
 $no=1;
+
 foreach($barangin->tampil_data_in($idsub) as $rowd){
 	 $bgcolor = ($col++ & 1) ? 'gainsboro' : 'antiquewhite';
       ?>
   <tr bgcolor="<?php echo $bgcolor; ?>">
     <td><?php echo $no;?></td>
-    <td align="left"><?php echo $rowd['tanggal'];?></td>
+    <td align="left"><?php echo $rowd['tanggal']->format('Y-m-d');?></td>
     <td><a href="#"class="open_detailinout" id="<?php echo $rowd['idb']; ?>"><?php echo $rowd['kode'];?> <span class="label label-danger"><?php echo $rowd['jml'];?></span></a></td>
     <td align="left"><?php echo $rowd['nama'];?></td>
     <td align="center"><?php echo $rowd['jenis']; ?></td>
