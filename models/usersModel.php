@@ -55,7 +55,7 @@ $user->update_user($_POST['id'],$_POST['username'],
 
 // ## USER-DELETE
 elseif($page == "hapus-user"){
-$user->hapus_user($_GET['id']);
+$user->hapus_user((int) $_GET['id']);
  	header("location:../user");
 }
 // ############################################ END MODULE USER ############################################################

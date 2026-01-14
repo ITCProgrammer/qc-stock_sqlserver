@@ -8,7 +8,8 @@ $db = new Database();
 
 // koneksi ke MySQL via method
 $db->connectMySQLi();
-foreach($user->edit_user($_GET['id']) as $d){
+// foreach($user->edit_user($_GET['id']) as $d){
+$d = $user->edit_user($_GET['id']);
 ?>
           <div class="modal-dialog ">
             <div class="modal-content">
@@ -119,7 +120,7 @@ foreach($user->edit_user($_GET['id']) as $d){
             <!-- /.modal-content -->
   </div>
           <!-- /.modal-dialog -->
-          <?php } ?>
+          <?php //} ?>
 <script>
   $(function () {
  //Initialize Select2 Elements
