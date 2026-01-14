@@ -1,5 +1,5 @@
 <?php
-
+    require_once __DIR__ . '/../../../config/koneksi.php';
     function formatNumber($number)
     {
         return rtrim(rtrim(number_format($number, 3, '.', ''), '0'), '.');
@@ -7,7 +7,9 @@
 
     // Koneksi MYSQL
     date_default_timezone_set('Asia/Jakarta');
-    $con = mysqli_connect("10.0.0.10", "dit", "4dm1n", "invqc");
+    // $con = mysqli_connect("10.0.0.10", "dit", "4dm1n", "invqc");
+    $db = new Database();
+    $connSqlSrv =  $db->connectSqlServer();
 
     // Koneksi DB2
     $hostname = "10.0.0.21";
@@ -27,9 +29,21 @@
     $id_barang = $_GET['id_barang'];
 
     // Ambil data barang stock awal
-    $query_barang  = "SELECT * FROM tbl_master_barang where id='$id_barang' LIMIT 1";
-    $result_barang = mysqli_query($con, $query_barang);
-    $data_barang   = mysqli_fetch_assoc($result_barang);
+    // $query_barang  = "SELECT * FROM tbl_master_barang where id='$id_barang' LIMIT 1";
+    // $result_barang = mysqli_query($con, $query_barang);
+    // $data_barang   = mysqli_fetch_assoc($result_barang);
+
+    $sql = "SELECT TOP 1 * FROM invqc.tbl_master_barang WHERE id = ?";
+
+    $params = [$id_barang];
+
+    $stmt = sqlsrv_query($connSqlSrv, $sql, $params);
+
+    if ($stmt === false) {
+        die(print_r(sqlsrv_errors(), true));
+    }
+
+    $data_barang = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
     // print_r($data_barang);
 
     $DESCRIPTION   = $data_barang['DESCRIPTION'];
