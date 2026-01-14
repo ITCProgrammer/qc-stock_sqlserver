@@ -27,6 +27,6 @@ $permohonan->update_permohonan($_POST['id'],$_POST['tgl_mohon'],$note);
 }
 // ## PERMOHONAN-DELETE
 elseif($page == "hapuspermohonan"){
-$permohonan->hapus_permohonan($_GET['id']);
+$permohonan->hapus_permohonan((int) $_GET['id']);
  	header("location:../permohonan");
 }

@@ -26,7 +26,7 @@ foreach($permohonan->edit_permohonan($modal_id) as $r){
                   <div class="col-md-3">
                   <div class="input-group date">
                   <div class="input-group-addon"> <i class="fa fa-calendar"></i> </div>
-                  <input name="tgl_mohon" type="text" class="form-control pull-right" id="datepicker1" placeholder="yyyy-mm-dd" value="<?php echo $r['tgl_mohon']; ?>" autocomplete="off" required/>
+                  <input name="tgl_mohon" type="text" class="form-control pull-right" id="datepicker1" placeholder="yyyy-mm-dd" value="<?php echo $r['tgl_mohon']->format('Y-m-d'); ?>" autocomplete="off" required/>
                   </div>
                   <span class="help-block with-errors"></span>
                   </div>

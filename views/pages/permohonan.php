@@ -3,7 +3,7 @@
 session_start();
 // instance objek
 $permohonan = new Permohonan();
-$db = new Database();
+// $db = new Database();
 //$idsub =$_SESSION['subQC'];
 //$cek= $barang->jmlStock($idsub);
 ?>
@@ -48,7 +48,7 @@ foreach($permohonan->tampil_data($idsub) as $rowd){
     <td><?php echo $rowd['documentno'];?> <a href="#" class="open_detailmohon" id="<?php echo $rowd['id'] ?>"><span class="label label-danger"><?php echo $rowd['jml'];?></span></a></td>
     <td align="left"><?php echo $rowd['dept'];?></td>
     <td align="center"><?php echo $rowd['note']; ?></td>
-    <td align="right"><?php echo $rowd['tgl_mohon'];?></td>
+    <td align="right"><?php echo $rowd['tgl_mohon']->format('Y-m-d')?></td>
     <td align="center"><div class="btn-group">
 	  <a href="#" class="btn btn-warning btn-sm add_detail_permohonan <?php if($_SESSION['lvlQC']==3 ){echo "disabled"; } ?>" id="<?php echo $rowd['id'] ?>"><i class="fa fa-plus"></i> </a>		
       <a href="#" class="btn btn-info btn-sm open_editpermohonan <?php if($_SESSION['lvlQC']==3 ){echo "disabled"; } ?>" id="<?php echo $rowd['id'] ?>"><i class="fa fa-edit"></i> </a>
@@ -83,6 +83,8 @@ foreach($permohonan->tampil_data($idsub) as $rowd){
 		return $nipbr;
 	}
 	$nou=no_urut();*/
+  // TODO: fix me, nou is required in table
+  $nou = "QCF/". date("y/m") . "-" . mt_rand(1, 99);
 	?>
 <div class="modal fade" id="DataPermohonan">
           <div class="modal-dialog modal-lg">
