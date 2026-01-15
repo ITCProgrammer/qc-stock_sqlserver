@@ -19,6 +19,10 @@ $totalin = $tothrgin = $totalout = $tothrgout = 0;
 function formatTanggal($value) {
     return ($value instanceof DateTimeInterface) ? $value->format('Y-m-d') : $value;
 }
+
+function formatNumber($value, $decimals = 2) {
+    return number_format((float) $value, $decimals, ".", "");
+}
 ?>
           <div class="modal-dialog modal-lg" style="width: 90%">
                 <div class="modal-content">
@@ -60,9 +64,9 @@ function formatTanggal($value) {
        <td align="center"><?php echo formatTanggal($r['tanggal']); ?></td>
        <td align="center"><?php echo $r['kode']; ?></td>
        <td align="center"><?php echo $r['jenis']; ?></td>
-       <td align="right"><?php echo $r['jml']; ?></td>
+       <td align="right"><?php echo formatNumber($r['jml']); ?></td>
        <td align="center"><?php echo $r['satuan']; ?></td>
-       <td align="right"><?php echo number_format($r['harga']*$r['jml'],"2",".",""); ?></td>
+       <td align="right"><?php echo formatNumber($r['harga']*$r['jml']); ?></td>
        <td align="center"><?php echo $r['userid']; ?></td>
        <td align="left"><?php echo $r['note']; ?></td>
        </tr>
@@ -77,9 +81,9 @@ function formatTanggal($value) {
        <td align="center">&nbsp;</td>
        <td align="center">&nbsp;</td>
        <td align="center"><strong>Total</strong></td>
-       <td align="right"><strong><?php echo number_format($totalin,"2",".",""); ?></strong></td>
+       <td align="right"><strong><?php echo formatNumber($totalin); ?></strong></td>
        <td align="center">&nbsp;</td>
-       <td align="right"><strong><?php echo number_format($tothrgin,"2",".",""); ?></strong></td>
+       <td align="right"><strong><?php echo formatNumber($tothrgin); ?></strong></td>
        <td align="center">&nbsp;</td>
        <td align="left">&nbsp;</td>
        </tr>
@@ -115,10 +119,10 @@ function formatTanggal($value) {
        <td align="center"><?php echo formatTanggal($r1['tanggal']); ?></td>
        <td align="center"><?php echo $r1['kode']; ?></td>
        <td align="center"><?php echo $r1['jenis']; ?></td>
-       <td align="right"><?php echo $r1['jml']; ?></td>
+       <td align="right"><?php echo formatNumber($r1['jml']); ?></td>
        <td align="center"><?php echo $r1['satuan']; ?></td>
-       <td align="right"><?php echo $r1['harga']; ?></td>
-       <td align="right"><?php echo $r1['total_harga']; ?></td>
+       <td align="right"><?php echo formatNumber($r1['harga']); ?></td>
+       <td align="right"><?php echo formatNumber($r1['total_harga']); ?></td>
        <td align="center"><?php echo $r1['userid']; ?></td>
        <td align="center"><?php echo $r1['note']; ?></td>
        </tr>
@@ -133,13 +137,13 @@ function formatTanggal($value) {
            <td>&nbsp;</td>
            <td>&nbsp;</td>
            <td align="center"><strong>Total</strong></td>
-           <td align="right"><strong><?php echo number_format($totalout,"2",".",""); ?></strong></td>
+           <td align="right"><strong><?php echo formatNumber($totalout); ?></strong></td>
            <td align="center">&nbsp;</td>
            <td>&nbsp;</td>
-           <td align="right"><strong><?php echo number_format($tothrgout,"2",".",""); ?></strong></td>
+           <td align="right"><strong><?php echo formatNumber($tothrgout); ?></strong></td>
            <td>&nbsp;</td>
            <td>&nbsp;</td>
-     	   </tr>
+    	   </tr>
      </foot>
   </table>
   						</div>
