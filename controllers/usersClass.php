@@ -1,5 +1,8 @@
 <?php
-session_start();
+// Start session only if not already active to avoid notices when included multiple times
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 class User extends Database
 {
     private $conn;
