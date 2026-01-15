@@ -29,14 +29,14 @@ class Database
      */
     function connectMySQLi()
     {
-        //konek ke mysql server
-        $mysqli = new mysqli("10.0.0.10", "dit", "4dm1n", "invqc");
-        //mengecek jika terjadi gagal koneksi
-        if (mysqli_connect_errno()) {
-            echo "Error: Could not connect to database. ";
-            exit;
-        }
-        return $mysqli;
+        // //konek ke mysql server
+        // $mysqli = new mysqli("10.0.0.10", "dit", "4dm1n", "invqc");
+        // //mengecek jika terjadi gagal koneksi
+        // if (mysqli_connect_errno()) {
+        //     echo "Error: Could not connect to database. ";
+        //     exit;
+        // }
+        // return $mysqli;
     }
 
     function connectSqlServer()
