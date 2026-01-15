@@ -10,11 +10,15 @@ include_once '../../controllers/barangkeluarclass.php';
 $barang = new Barang();
 $barangin = new BarangMasuk();
 $barangout= new BarangKeluar();
-$db = new Database();
-
-// koneksi ke MySQL via method
-$db->connectMySQLi();
 $modal_id=$_GET['id'];
+
+// inisialisasi penjumlahan agar tidak notice
+$no = $no1 = $col = $col1 = 0;
+$totalin = $tothrgin = $totalout = $tothrgout = 0;
+
+function formatTanggal($value) {
+    return ($value instanceof DateTimeInterface) ? $value->format('Y-m-d') : $value;
+}
 ?>
           <div class="modal-dialog modal-lg" style="width: 90%">
                 <div class="modal-content">
@@ -53,7 +57,7 @@ $modal_id=$_GET['id'];
   	  	?>
        <tr bgcolor="<?php echo $bgcolor; ?>">
        <td align="center"><?php echo $no; ?></td>
-       <td align="center"><?php echo $r['tanggal']; ?></td>
+       <td align="center"><?php echo formatTanggal($r['tanggal']); ?></td>
        <td align="center"><?php echo $r['kode']; ?></td>
        <td align="center"><?php echo $r['jenis']; ?></td>
        <td align="right"><?php echo $r['jml']; ?></td>
@@ -108,7 +112,7 @@ $modal_id=$_GET['id'];
   	  	?>
      <tr bgcolor="<?php echo $bgcolor1; ?>">
        <td align="center"><?php echo $no1; ?></td>
-       <td align="center"><?php echo $r1['tanggal']; ?></td>
+       <td align="center"><?php echo formatTanggal($r1['tanggal']); ?></td>
        <td align="center"><?php echo $r1['kode']; ?></td>
        <td align="center"><?php echo $r1['jenis']; ?></td>
        <td align="right"><?php echo $r1['jml']; ?></td>
