@@ -1,12 +1,12 @@
 <?php
 class LaporanBulananNow extends Database
 {
-    private $conn;
+    // private $conn;
     private $connSqlSrv;
 
     public function __construct()
     {
-        $this->conn = $this->connectMySQLi();
+        // $this->conn = $this->connectMySQLi();
         $this->connSqlSrv = $this->connectSQLServer();
     }
 

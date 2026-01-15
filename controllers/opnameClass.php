@@ -5,7 +5,7 @@ class Opname extends Database
   private $connSqlSrv;
   public function __construct()
   {
-    $this->conn = $this->connectMySQLi();
+    // $this->conn = $this->connectMySQLi();
     $this->connSqlSrv = $this->connectSqlServer();
   }
   public function input_opname($idsub, $awal, $akhir, $note, $userid)
@@ -243,8 +243,8 @@ class Opname extends Database
   // proses delete data project
   public function hapus_opname($id)
   {
-    $this->conn->query("DELETE FROM tbl_opname where id='$id'");
-    $this->conn->query("DELETE FROM tbl_opname_detail where id_opname='$id'");
+    // $this->conn->query("DELETE FROM tbl_opname where id='$id'");
+    // $this->conn->query("DELETE FROM tbl_opname_detail where id_opname='$id'");
 
     sqlsrv_begin_transaction($this->connSqlSrv);
 

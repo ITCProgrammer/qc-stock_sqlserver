@@ -5,10 +5,8 @@ include_once 'controllers/usersclass.php';
 
 // instance objek db dan user
 $user = new User();
-$db = new Database();
 
 // koneksi ke MySQL via method
-$db->connectMySQLi();
 unset($_SESSION['passQC']);
 
 ?>

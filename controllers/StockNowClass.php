@@ -7,7 +7,7 @@ class StockNow extends Database
     public function __construct()
     {
         // Panggil parent constructor jika ada, lalu set koneksi
-        $this->conn = $this->connectMySQLi();
+        // $this->conn = $this->connectMySQLi();
         $this->connSqlSrv = $this->connectSqlServer();
     }
 

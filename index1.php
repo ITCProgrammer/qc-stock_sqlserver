@@ -15,10 +15,8 @@
 
     include_once 'controllers/StockNowClass.php';
 
-    $db = new Database();
 
     // koneksi ke MySQL via method
-    $db->connectMySQLi();
 
     $user              = new User();
     $barang            = new Barang();

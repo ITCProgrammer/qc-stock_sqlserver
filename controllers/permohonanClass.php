@@ -1,9 +1,11 @@
 <?php
 class Permohonan extends Database
 {
+    private $connSqlSrv;
+    
     public function __construct()
     {
-        $this->conn = $this->connectMySQLi();
+        // $this->conn = $this->connectMySQLi();
         $this->connSqlSrv = $this->connectSqlServer();
     }
     // proses input permohonan

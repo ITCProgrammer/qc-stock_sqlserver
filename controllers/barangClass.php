@@ -6,17 +6,17 @@ class Barang extends Database
 
     public function __construct()
     {
-        $this->conn = $this->connectMySQLi();
+        // $this->conn = $this->connectMySQLi();
         $this->connSqlSrv = $this->connectSqlServer();
     }
     //cek stok Minimal
     public function cekMinimal($idsub)
     {
-        $data = $this->conn->query("SELECT * from tbl_barang WHERE jumlah<=jumlah_min_a and sub_dept='$idsub' ORDER BY kode ASC");
-        while ($x = mysqli_fetch_array($data)) {
-            $hasil[] = $x;
-        }
-        return $hasil;
+        // $data = $this->conn->query("SELECT * from tbl_barang WHERE jumlah<=jumlah_min_a and sub_dept='$idsub' ORDER BY kode ASC");
+        // while ($x = mysqli_fetch_array($data)) {
+        //     $hasil[] = $x;
+        // }
+        // return $hasil;
     }
     public function jmlMinRow($idsub)
     {
@@ -316,10 +316,10 @@ class Barang extends Database
         return $result;
     }
 
-    function getSatuanByBarangId($id)
-    {
-        $query = $this->conn->query("SELECT * FROM tbl_barang WHERE id='$id'");
-        $row = mysqli_fetch_array($query);
-        return $row['satuan'];
-    }
+    // function getSatuanByBarangId($id)
+    // {
+    //     $query = $this->conn->query("SELECT * FROM tbl_barang WHERE id='$id'");
+    //     $row = mysqli_fetch_array($query);
+    //     return $row['satuan'];
+    // }
 }

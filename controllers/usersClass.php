@@ -6,7 +6,7 @@ class User extends Database
     private $connSqlSrv;
     public function __construct()
     {
-        $this->conn = $this->connectMySQLi();
+        // $this->conn = $this->connectMySQLi();
         $this->connSqlSrv = $this->connectSQLServer();
     }
     // Proses Login
